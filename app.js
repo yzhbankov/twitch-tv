@@ -3,9 +3,26 @@
  */
 
 var streams = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
+var offlineStreams = [];
+streams.forEach(function (item, i, arr) {
+    var getUrl_2 = 'https://api.twitch.tv/kraken/streams/' + item;
+    $.ajax({
+        type: 'GET',
+        url: getUrl_2,
+        headers: {
+            'Client-ID': 'kg2h4jxqp95a4m3xcavhfoe3b2ea1b1'
+        },
+        success: function (data) {
+            if (!data.stream) {
+                offlineStreams.push(item);
+            }
+        }
+    });
+});
 
 streams.forEach(function (item, i, arr) {
     var getUrl = 'https://api.twitch.tv/kraken/channels/' + item;
+
     $.ajax({
         type: 'GET',
         url: getUrl,
@@ -13,8 +30,7 @@ streams.forEach(function (item, i, arr) {
             'Client-ID': 'kg2h4jxqp95a4m3xcavhfoe3b2ea1b1'
         },
         success: function (data) {
-            console.log(data);
-            if (data.status) {
+            if (offlineStreams.indexOf(item) == -1) {
                 $(".twitch-container").append("<div class='row stream no-margin'><div class='col-md-3'></div><div class='col-md-6 no-padding'><div class='col-md-2 stream-icon'>" +
                     "<img src='" + data.logo + "' width='40' height='40'></div>" +
                     "<div class='col-md-2 stream-name'>" + "<a href='https://www.twitch.tv/" + item + "' target=_blank>" + item + "</a></div>" +
