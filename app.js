@@ -44,3 +44,30 @@ streams.forEach(function (item, i, arr) {
         }
     });
 });
+
+document.querySelector("#active").addEventListener("click", function () {
+    var streamElements = document.querySelectorAll(".stream");
+    streamElements.forEach(function (item, i, arr) {
+        if (item.querySelector(".stream-status").innerHTML == "Offline") {
+            item.style.display = 'none';
+        } else {
+            item.style.display = 'block';
+        }
+    });
+});
+document.querySelector("#offline").addEventListener("click", function () {
+    var streamElements = document.querySelectorAll(".stream");
+    streamElements.forEach(function (item, i, arr) {
+        if (item.querySelector(".stream-status").innerHTML == "Offline") {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+});
+document.querySelector("#all").addEventListener("click", function () {
+    var streamElements = document.querySelectorAll(".stream");
+    streamElements.forEach(function (item, i, arr) {
+        item.style.display = 'block';
+    });
+});
