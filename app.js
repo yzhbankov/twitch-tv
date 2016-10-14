@@ -31,15 +31,15 @@ streams.forEach(function (item, i, arr) {
         },
         success: function (data) {
             if (offlineStreams.indexOf(item) == -1) {
-                $(".twitch-container").append("<div class='row stream no-margin'><div class='col-md-3'></div><div class='col-md-6 no-padding'><div class='col-md-2 stream-icon'>" +
+                $(".twitch-container").append("<div class='row stream no-margin'><div class='col-md-3 col-xs-0'></div><div class='col-md-6 col-xs-12 no-padding'><div class='col-md-2 col-xs-2 stream-icon'>" +
                     "<img src='" + data.logo + "' width='40' height='40'></div>" +
-                    "<div class='col-md-2 stream-name'>" + "<a href='https://www.twitch.tv/" + item + "' target=_blank>" + item + "</a></div>" +
-                    "<div class='col-md-8 stream-status'>" + data.status.substr(0, 70) + "..." + "</div></div></div>");
+                    "<div class='col-md-2 col-xs-3 stream-name'>" + "<a href='https://www.twitch.tv/" + item + "' target=_blank>" + item + "</a></div>" +
+                    "<div class='col-md-8 col-xs-7 stream-status'>" + data.status.substr(0, 70) + "..." + "</div></div></div>");
             } else {
-                $(".twitch-container").append("<div class='row stream no-margin'><div class='col-md-3'></div><div class='col-md-6 no-padding'><div class='col-md-2 stream-icon'>" +
+                $(".twitch-container").append("<div class='row stream no-margin'><div class='col-md-3 col-xs-0'></div><div class='col-md-6 col-xs-12 no-padding'><div class='col-md-2 col-xs-2 stream-icon'>" +
                     "<img src='" + data.logo + "' width='40' height='40'></div>" +
-                    "<div class='col-md-2 stream-name'>" + "<a href='https://www.twitch.tv/" + item + "' target=_blank>" + item + "</a></div>" +
-                    "<div class='col-md-8 stream-status'>" + "Offline" + "</div></div></div>");
+                    "<div class='col-md-2 col-xs-3 stream-name'>" + "<a href='https://www.twitch.tv/" + item + "' target=_blank>" + item + "</a></div>" +
+                    "<div class='col-md-8 col-xs-7 stream-status'>" + "Offline" + "</div></div></div>");
             }
         }
     });
