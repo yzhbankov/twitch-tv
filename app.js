@@ -30,11 +30,13 @@ streams.forEach(function (item, i, arr) {
             'Client-ID': 'kg2h4jxqp95a4m3xcavhfoe3b2ea1b1'
         },
         success: function (data) {
+            var width = 70;
+            if (window.innerWidth < 740) width = 20;
             if (offlineStreams.indexOf(item) == -1) {
                 $(".twitch-container").append("<div class='row stream no-margin'><div class='col-md-3 col-xs-0'></div><div class='col-md-6 col-xs-12 no-padding'><div class='col-md-2 col-xs-2 stream-icon'>" +
                     "<img src='" + data.logo + "' width='40' height='40'></div>" +
                     "<div class='col-md-2 col-xs-3 stream-name'>" + "<a href='https://www.twitch.tv/" + item + "' target=_blank>" + item + "</a></div>" +
-                    "<div class='col-md-8 col-xs-7 stream-status'>" + data.status.substr(0, 70) + "..." + "</div></div></div>");
+                    "<div class='col-md-8 col-xs-7 stream-status'>" + data.status.substr(0, width) + "..." + "</div></div></div>");
             } else {
                 $(".twitch-container").append("<div class='row stream no-margin'><div class='col-md-3 col-xs-0'></div><div class='col-md-6 col-xs-12 no-padding'><div class='col-md-2 col-xs-2 stream-icon'>" +
                     "<img src='" + data.logo + "' width='40' height='40'></div>" +

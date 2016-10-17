@@ -18,7 +18,7 @@ body {
     height: 40px;
 }
 
-.footer {
+.lower-line {
     margin-top: 2px;
     height: 5px;
     background-color: #ffa005;
@@ -63,6 +63,9 @@ body {
     text-align: center;
     height: 50px;
     padding-top: 15px;
+}
+.footer{
+    text-align: center;
 }
 
 @media screen and (max-width: 740px) {
