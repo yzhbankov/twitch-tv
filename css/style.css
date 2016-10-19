@@ -66,6 +66,8 @@ body {
 }
 .footer{
     text-align: center;
+    font-size: x-small;
+
 }
 
 @media screen and (max-width: 740px) {
